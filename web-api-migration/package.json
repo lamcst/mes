@@ -1,0 +1,20 @@
+{
+  "name": "web-api-migration",
+  "version": "1.0.0",
+  "description": "migration script for knex",
+  "private": true,
+  "scripts": {
+    "lint": "eslint ./",
+    "lint:fix": "yarn lint --fix",
+    "todo": "leasot **/*.js --ignore **/node_modules/**/*.js",
+    "knex": "knex --knexfile knexfile.js",
+    "migrate:make": "npm run knex migrate:make -- -x js"
+  },
+  "author": "Andy",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "knex": "^3.1.0",
+    "pg": "^8.12.0"
+  }
+}
