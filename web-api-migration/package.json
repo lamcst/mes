@@ -4,11 +4,11 @@
   "description": "migration script for knex",
   "private": true,
   "scripts": {
-    "lint": "eslint ./",
-    "lint:fix": "yarn lint --fix",
-    "todo": "leasot **/*.js --ignore **/node_modules/**/*.js",
-    "knex": "knex --knexfile knexfile.js",
-    "migrate:make": "npm run knex migrate:make -- -x js"
+    "migrate:make": "knex --knexfile knexfile.js migrate:make -- -x js",
+    "migrate:up": "knex --knexfile knexfile.js migrate:up",
+    "migrate:down": "knex --knexfile knexfile.js migrate:down",
+    "migrate:latest": "knex --knexfile knexfile.js migrate:latest",
+    "seed:run":"knex seed:run"
   },
   "author": "Andy",
   "license": "ISC",

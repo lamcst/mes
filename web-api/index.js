@@ -1,11 +1,25 @@
 const express = require('express')
-const app = express()
-const port = 4000
+const morgan = require('morgan')
+const bodyParser = require('body-parser')
+const Knex = require('knex');
+const { Model } = require('objection');
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+const knexConfig = require('./knexfile');
+const routes = require('./src/routes')
+
+
+const app = express()
+const port = Number(process.env.PORT || 4000)
+
+Model.knex(Knex(knexConfig))
+
+app.use(morgan('tiny'))
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use('', routes);
+
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`MES web api listening on port ${port}`)
 })
