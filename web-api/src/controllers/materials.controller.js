@@ -11,9 +11,6 @@ exports.get = async (req, res, next) => {
   const result = await Materials.query()
     .withGraphFetched('items')
     .modifyGraph('items', (qb) => {
-      
-        
-      
       qb.count('material_items.id').groupBy(['material_items.material_id'])
       if(countMode === 'unused') {
         qb.leftJoinRelated('prod')

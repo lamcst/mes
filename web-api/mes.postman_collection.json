@@ -1,0 +1,471 @@
+{
+	"info": {
+		"_postman_id": "416adca0-c553-439d-9c19-dd3a01f23c67",
+		"name": "mes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14420368"
+	},
+	"item": [
+		{
+			"name": "get materials",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{debugUrl}}/materials?countMode=unused",
+					"host": [
+						"{{debugUrl}}"
+					],
+					"path": [
+						"materials"
+					],
+					"query": [
+						{
+							"key": "countMode",
+							"value": "unused",
+							"description": "unsued or all"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get productions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{debugUrl}}/productions?page=2&pageSize=10",
+					"host": [
+						"{{debugUrl}}"
+					],
+					"path": [
+						"productions"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						},
+						{
+							"key": "pageSize",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get single productions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{debugUrl}}/productions/620989a1-099f-5306-942c-bc9469d88a35",
+					"host": [
+						"{{debugUrl}}"
+					],
+					"path": [
+						"productions",
+						"620989a1-099f-5306-942c-bc9469d88a35"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get good-templates",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{debugUrl}}/good-templates",
+					"host": [
+						"{{debugUrl}}"
+					],
+					"path": [
+						"good-templates"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete productions",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{debugUrl}}/productions/a2fe9128-b359-5078-9e61-d2b268b5bc0b",
+					"host": [
+						"{{debugUrl}}"
+					],
+					"path": [
+						"productions",
+						"a2fe9128-b359-5078-9e61-d2b268b5bc0b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post productions",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"helloe-w1\",\n    \"description\":\"1231\",\n    \"expectEnd\":\"2024-06-09T09:18:29.019Z\",\n    \"goodTemplates\":[\n        {\n            \"id\":\"d83ead20-92cd-579a-841e-2d73fd029508\",\n            \"number\":1\n        }\n    ],\n    \"materials\":[{\n        \"id\":\"fd6210df-4047-5bd0-9d6f-aea1c86001f2\",\n        \"number\": 3\n    },{\n        \"id\":\"2a66a085-beaa-5a40-a25f-51e45bddcb45\",\n        \"number\": 1\n    }]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{debugUrl}}/productions",
+					"host": [
+						"{{debugUrl}}"
+					],
+					"path": [
+						"productions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post prod status",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"prodId\":\"170edc03-043d-57d7-9e01-21ab9076ef3c\",\n    \"status\":\"stop\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{debugUrl}}/productions/status",
+					"host": [
+						"{{debugUrl}}"
+					],
+					"path": [
+						"productions",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post prod good",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"prodId\":\"170edc03-043d-57d7-9e01-21ab9076ef3c\",\n    \"goodTemplateId\":\"d83ead20-92cd-579a-841e-2d73fd029508\",\n    \"materials\":[{\n        \"id\":\"00fbd393-b8f5-5578-9746-baff5fb0b634\",\n        \"number\":1\n    }]\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{debugUrl}}/productions/good",
+					"host": [
+						"{{debugUrl}}"
+					],
+					"path": [
+						"productions",
+						"good"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get qc",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{debugUrl}}/quality-controls?page=1&pageSize=10",
+					"host": [
+						"{{debugUrl}}"
+					],
+					"path": [
+						"quality-controls"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get goods",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{debugUrl}}/goods?status=produced",
+					"host": [
+						"{{debugUrl}}"
+					],
+					"path": [
+						"goods"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "produced"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post qc",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"first-prod\",\n    \"name\": \"prod\",\n    \"expectEnd\": \"2024-06-09T17:44:53.192Z\",\n    \"goods\": [\n        {\n            \"id\":\"80ff4635-1a77-4dc6-b70f-42207e025524\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{debugUrl}}/quality-controls",
+					"host": [
+						"{{debugUrl}}"
+					],
+					"path": [
+						"quality-controls"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get qc single",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{debugUrl}}/quality-controls/ca01a4e0-58ce-4dc0-9d58-35836a8d704f",
+					"host": [
+						"{{debugUrl}}"
+					],
+					"path": [
+						"quality-controls",
+						"ca01a4e0-58ce-4dc0-9d58-35836a8d704f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post qc status",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"qcId\":\"f105e0d2-10b5-4854-84c3-d1af679b5026\",\n    \"status\":\"start\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{debugUrl}}/quality-controls/status",
+					"host": [
+						"{{debugUrl}}"
+					],
+					"path": [
+						"quality-controls",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post qc result",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-MY,en-US;q=0.9,en;q=0.8"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Origin",
+						"value": "http://localhost:3000"
+					},
+					{
+						"key": "Referer",
+						"value": "http://localhost:3000/"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-site"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Google Chrome\";v=\"125\", \"Chromium\";v=\"125\", \"Not.A/Brand\";v=\"24\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"macOS\""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"goodId\": \"eb8a2d21-780f-4ad6-84aa-ba18966962d9\",\n    \"testResults\": [\n        {\n            \"templateId\": \"566db733-a8dc-4d4e-a27d-f3d3f941311a\",\n            \"result\": \"it does light up\",\n            \"pass\": true\n        },\n        {\n            \"templateId\": \"1725971d-d0b3-4a11-af8c-8454d55279c1\"\n        },\n        {\n            \"templateId\": \"bb90a672-d297-4440-956f-2de0b2977b83\"\n        },\n        {\n            \"templateId\": \"2ee73e95-e168-49bc-9736-b1827d633cf3\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{debugUrl}}/quality-controls/result",
+					"host": [
+						"{{debugUrl}}"
+					],
+					"path": [
+						"quality-controls",
+						"result"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get prod status duration",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{debugUrl}}/productions/status-duration",
+					"host": [
+						"{{debugUrl}}"
+					],
+					"path": [
+						"productions",
+						"status-duration"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get prod goods output",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{debugUrl}}/productions/good-output",
+					"host": [
+						"{{debugUrl}}"
+					],
+					"path": [
+						"productions",
+						"good-output"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get goods status info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{debugUrl}}/goods/status-info",
+					"host": [
+						"{{debugUrl}}"
+					],
+					"path": [
+						"goods",
+						"status-info"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "debugUrl",
+			"value": "http://localhost:4000"
+		},
+		{
+			"key": "dockerUrl",
+			"value": "http://localhost:3000"
+		}
+	]
+}

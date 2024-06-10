@@ -5,7 +5,7 @@
 exports.up = function(knex) {
   return knex.schema.createTable('qc_statuses', (table) => {
     table.uuid("id", {primaryKey: true}).defaultTo(knex.raw("uuid_generate_v4()"));
-    table.uuid("prod_id").references('id').inTable('productions');
+    table.uuid("qc_id").references('id').inTable('quality_controls');
     table.timestamp("start").notNullable();
     table.enum('status', ["start", "stop", "pause", "shut-down", "close", "done"]).notNullable();
     table.timestamps(true,true)

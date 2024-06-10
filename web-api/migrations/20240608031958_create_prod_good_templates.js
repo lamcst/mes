@@ -3,11 +3,11 @@
  * @returns { Promise<void> }
  */
 exports.up = function(knex) {
-  return knex.schema.createTable('prod_goods', (table) => {
+  return knex.schema.createTable('prod_good_templates', (table) => {
     table.uuid("id", {primaryKey: true}).defaultTo(knex.raw("uuid_generate_v4()"));
     table.uuid("prod_id").references('id').inTable('productions');
     table.uuid("good_template_id").references('id').inTable('good_templates');
-    table.integer("good_template_snapshot").notNullable;
+    table.integer("number").notNullable();
 
     table.timestamps(true,true)
     
@@ -19,5 +19,5 @@ exports.up = function(knex) {
  * @returns { Promise<void> }
  */
 exports.down = function(knex) {
-  return knex.schema.dropTable('prod_goods');
+  return knex.schema.dropTable('prod_good_templates');
 };

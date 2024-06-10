@@ -25,6 +25,9 @@ class MaterialItems extends Model {
   }
   static get relationMappings() {
     const ProdMaterialItems = require('./prod-materials-items.models');
+    const GoodMaterialItems = require('./good-material-items.models');
+    const Materials = require('./materials.model');
+
     return {
       prod:{
         relation: Model.HasOneRelation,
@@ -33,6 +36,22 @@ class MaterialItems extends Model {
           from: 'material_items.id',
           to: 'prod_material_items.material_item_id',
         },
+      },
+      good:{
+        relation: Model.HasOneRelation,
+        modelClass: GoodMaterialItems,
+        join: {
+          from: 'material_items.id',
+          to: 'good_material_items.material_item_id',
+        },
+      },
+      material:{
+        relation: Model.HasOneRelation,
+        modelClass: Materials,
+        join: {
+          from: 'material_items.material_id',
+          to:'materials.id'
+        }
       }
     }
   }

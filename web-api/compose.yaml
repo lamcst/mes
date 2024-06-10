@@ -5,13 +5,13 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - 3000:3001
+      - 4001:4000
     depends_on:
       db:
         condition: service_healthy
     environment:
       - PG_CONNECTION_URI=postgres://mesuser:mespass@db:5432/mesdb
-      - PORT=3001
+      - PORT=4000
   
   db:
     image: postgres:16.3-alpine3.20
